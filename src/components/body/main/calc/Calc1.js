@@ -2,8 +2,6 @@ import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
-import { useState } from 'react';
-import ReactDOM from 'react-dom/client';
 import './Calc1.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -25,7 +23,7 @@ function addResults(amount,vat,operation,result){amount=toCurrencyString(amount)
 resultBlock('Amount:',amount)+
 resultBlock('VAT %:',vat)+
 resultBlock('Operation:',operation)+
-(operation==='Exclude'?resultBlock('<b className="text-danger">'+'VAT Excluded:',toCurrencyString(parseFloat(result)-parseFloat(amount))+'</b>')+resultBlock('<b className="text-danger">'+'Gross amount:',result+'</b>'):resultBlock('<b className="text-dark">'+'VAT Included:',result+'</b>')+resultBlock('<b className="text-dark">'+'Net amount:',toCurrencyString(parseFloat(amount)-parseFloat(result))+'</b>'))+
+(operation==='Exclude'?resultBlock('VAT Excluded:',toCurrencyString(parseFloat(result)-parseFloat(amount)))+resultBlock('Gross amount:',result):resultBlock('VAT Included:',result)+resultBlock('Net amount:',toCurrencyString(parseFloat(amount)-parseFloat(result))))+
 '</div>';var innerHTML=document.getElementById('results').innerHTML;innerHTML=html+innerHTML;document.getElementById('results').innerHTML=innerHTML;return true;}
 
 
