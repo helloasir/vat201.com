@@ -6,13 +6,10 @@ import Navi from './components/header/Navi'
 
 function App() {
   return (
-  <>
-
-    <Navi/>
-    <Body/>
-    <Footer/>
- 
- 
+    <>
+      <Navi />
+      <Body />
+      <Footer />
     </>
   );
 }

@@ -3,7 +3,6 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 
-
 function Navi() {
   return (
     <Navbar bg="primary" expand="lg" className='container' >
@@ -16,6 +15,7 @@ function Navi() {
             <Nav.Link href="#link">Link</Nav.Link>
           </Nav>
         </Navbar.Collapse>
+
       </Container>
     </Navbar>
   );

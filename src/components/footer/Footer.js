@@ -1,25 +1,20 @@
 import React from 'react';
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
-import heart from './heart.svg';
 
 function Footer() {
   return (
-    <div className="fixed-bottom">  
+    // <div className="fixed-bottom">  
     <Navbar bg="primary" expand="lg" className='container'>
- <Container>
+        <Container>
          <Navbar.Collapse id="basic-navbar-nav">
-          
-          
             Above VAT Calculator for reference purpose only . You are using this website with your own risk. We are not responsible any loses.
-          
-          <br></br>
-         Made with love <span><img src={heart} alt="heart" size width="15px" height="15px"/> </span>in UAE By Helloasir . 
-          
-        </Navbar.Collapse>
+             <br></br>
+            Made with love in UAE By Helloasir . 
+          </Navbar.Collapse>
         </Container>
     </Navbar>
-</div>
+  // </div>
 
   );
 }
