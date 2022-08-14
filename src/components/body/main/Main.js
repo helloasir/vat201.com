@@ -1,8 +1,8 @@
 import React from 'react';
-//import Calc from './calc/Calc';
-import Calc1 from './calc/Calc1';
+import Calc from './calc/Calc';
+// import Calc1 from './calc/Calc1';
 import './Main.css'
-import Calc from './calc/Calc'
+
 
 
 function Main() {
