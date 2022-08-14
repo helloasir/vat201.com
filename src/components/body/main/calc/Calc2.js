@@ -2,9 +2,9 @@ import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
-// import Alert from 'react-bootstrap/Alert';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Calc1.css'
+
 
 function xParseFloat(x)
         {var amount=x.replace(',','.');
@@ -26,7 +26,8 @@ function getOperation()
         {return document.getElementById('inc').checked?'Include':'Exclude';};
 
 function calculatorSubmit()
-        {var amount=getAmount();
+        {
+        var amount=getAmount();
           if(amount===false||isNaN(amount)||!isFinite(amount)){return false;}
 
         var vat=getVat();
@@ -35,27 +36,37 @@ function calculatorSubmit()
         var operation=getOperation();
         
         var result;
-          if(operation==='Include'){result=amount-amount/(1+vat/100);}
+          if(operation==='Include')
+          {result=amount-amount/(1+vat/100)}
           else 
-          if(operation==='Exclude'){result=amount*(1+vat/100);}
-             addResults(amount,vat,operation,result);};
+          {result=amount*(1+vat/100);}
+          addResults(amount,vat,operation,result);
+        };
 
 function toCurrencyString(x)
          {return(Math.round(x*100)/100).toFixed(2)}
          
 function resultBlock(caption,value)
-         {return '<span className="result-block">'+ caption + value + '</span>' }
+         {return caption + value }
 
 function addResults(amount,vat,operation,result)
-      {amount=toCurrencyString(amount);vat=toCurrencyString(vat);result=toCurrencyString(result);
-        var 
+      {
+        amount=toCurrencyString(amount);
+        vat=toCurrencyString(vat);
+        result=toCurrencyString(result);
         
-        html=`<div className="result alert-primary" >
+        var 
+        html=`<div className="result-block" >
+
         ${resultBlock('Amount:', amount)}
         ${resultBlock('VAT %:', vat)}
         ${resultBlock('Operation:', operation)}
-        ${operation === 'Exclude' ? resultBlock('VAT Excluded:', toCurrencyString(parseFloat(result) - parseFloat(amount))) + resultBlock('Gross amount:', result) : resultBlock('VAT Included:', result) +
-          resultBlock('Net amount:', toCurrencyString(parseFloat(amount) - parseFloat(result)))}</div><br></br>`;
+        ${operation === 'Exclude' ? 
+        resultBlock('VAT Excluded:', toCurrencyString(parseFloat(result) - parseFloat(amount))) + resultBlock('Gross amount:', result) : 
+        resultBlock('VAT Included:', result) + resultBlock('Net amount:', toCurrencyString(parseFloat(amount) - parseFloat(result)))}
+        </div>
+        <br>
+        </br>`;
         
         var innerHTML=document.getElementById('results').innerHTML;
         innerHTML=html+innerHTML;
@@ -63,7 +74,7 @@ function addResults(amount,vat,operation,result)
         return true;}
 
 
-function Calc1() {
+function Calc2() {
   const handleSubmit = (event) => {
     event.preventDefault();
     calculatorSubmit()
@@ -71,7 +82,7 @@ function Calc1() {
   }
   return (
     <>
-    <Form onSubmit={handleSubmit}>
+    <Form onSubmit={handleSubmit} id = "cal-form">
       <Row className="mb-3">
         <Form.Group as={Col} md="8" controlId="validationCustom01">
           <Form.Label>Amount :</Form.Label>
@@ -114,14 +125,12 @@ function Calc1() {
 
     </Form>
     
-      <Row className="mb-2">
-   
-      <div id="results"> </div>
-     
+      <Row className="mb-3">
+         <div id="results"> </div>
       </Row>
     
     </>
   );
 }
 
-export default Calc1;
+export default Calc2;
