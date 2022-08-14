@@ -7,7 +7,7 @@ vat201 - Very Simple VAT Calculator on Javascript
 www.vat201.com
 Static site - Hosted on Firebase
 Pagespeed perfomanace score 80 
-![Firebase](firebase.png)
+![Firebase](../public/imgfirebase.png)
 
 www.vat201.netlify.app
 React JS - Hosted on Netlify
